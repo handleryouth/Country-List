@@ -13,7 +13,7 @@ const CountryCard = ({
 
   return (
     <div
-      className=" bg-darkblue text-white rounded  min-w-[288px] overflow-hidden sm:w-80 cursor-pointer"
+      className=" dark:bg-darkblue dark:text-white rounded  min-w-[288px] overflow-hidden sm:w-80 cursor-pointer shadow-xl"
       onClick={() => {
         router.push(
           `/detail/${name.official.toLocaleLowerCase().replaceAll(" ", "_")}`

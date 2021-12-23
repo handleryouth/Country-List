@@ -49,7 +49,7 @@ const Home: NextPage = ({
   );
 
   return (
-    <div className="bg-verydarkblue">
+    <div className="dark:bg-verydarkblue">
       <div className="flex justify-center flex-col py-8 items-center">
         <InputText placeholder="Search for a country" />
         <InputDropdown

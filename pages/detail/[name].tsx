@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { GetServerSideProps } from "next";
 import axios from "axios";
+import numeral from "numeral";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { InferGetServerSidePropsType, NextPage } from "next/types";
@@ -46,19 +47,17 @@ const NationDetail: NextPage = ({
     currenciesNameCollection.push(key);
   });
 
-  console.log(flagDetail.current.borders);
-
   return (
-    <div className="bg-verydarkblue text-white">
-      <div className="w-11/12 mx-auto py-8">
+    <div className="dark:bg-verydarkblue dark:text-white">
+      <div className="w-11/12 mx-auto py-8 ">
         <button
-          className="w-32 h-8  bg-darkblue"
+          className="w-32 h-8  dark:bg-darkblue border-2"
           onClick={() => router.push("/")}
         >
           Get Back
         </button>
       </div>
-      <div className="flex xl:h-screen items-center flex-col xl:flex-row">
+      <div className="flex h-screen items-center flex-col xl:flex-row">
         <div className="xl:basis-2/4 relative w-10/12 sm:w-full min-h-[24rem]">
           <Image
             src={flagDetail.current.flags.png}
@@ -82,7 +81,8 @@ const NationDetail: NextPage = ({
                 }
               </p>
               <p className="mb-1">
-                Population: {flagDetail.current.population}
+                Population:{" "}
+                {numeral(flagDetail.current.population).format("0,0")}
               </p>
               <p className="mb-1">Region: {flagDetail.current.region}</p>
               <p className="mb-1">Sub Region: {flagDetail.current.subregion}</p>
