@@ -3,6 +3,7 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import type { NextPage } from "next";
 import axios from "axios";
 import { FlagThumbnailResponse } from "types";
+import Head from "next/head";
 import { CountryCard, InputDropdown, InputText } from "components";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -50,6 +51,14 @@ const Home: NextPage = ({
 
   return (
     <div className="dark:bg-verydarkblue">
+      <Head>
+        <title>Country Around The World</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Country Around the world" />
+        <meta name="keywords" content="NextJS, Tailwind CSS, React, Country" />
+        <meta httpEquiv="content-language" content="en-us" />
+        <meta name="author" content="handleryouth" />
+      </Head>
       <div className="flex justify-center flex-col py-8 items-center">
         <InputText placeholder="Search for a country" />
         <InputDropdown

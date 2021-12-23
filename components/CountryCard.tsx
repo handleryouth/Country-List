@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
+import numeral from "numeral";
 import { FlagThumbnailResponse } from "types";
 
 const CountryCard = ({
@@ -30,7 +31,7 @@ const CountryCard = ({
       </div>
       <div className="p-4">
         <h3 className="text-xl mb-2">{name.official}</h3>
-        <p>Population: {population}</p>
+        <p>Population: {numeral(population).format("0,0")}</p>
         <p>Region: {region}</p>
         <p>Capital: {capital}</p>
       </div>

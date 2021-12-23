@@ -5,6 +5,7 @@ import numeral from "numeral";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { InferGetServerSidePropsType, NextPage } from "next/types";
+import Head from "next/head";
 import { FlagDetailResponse } from "types";
 import { Badge } from "components";
 
@@ -49,6 +50,14 @@ const NationDetail: NextPage = ({
 
   return (
     <div className="dark:bg-verydarkblue dark:text-white">
+      <Head>
+        <title>Country Detail</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Detail of a Country" />
+        <meta name="keywords" content="NextJS, Tailwind CSS, React, Country" />
+        <meta httpEquiv="content-language" content="en-us" />
+        <meta name="author" content="handleryouth" />
+      </Head>
       <div className="w-11/12 mx-auto py-8 ">
         <button
           className="w-32 h-8  dark:bg-darkblue border-2"
