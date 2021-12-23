@@ -8,7 +8,7 @@ const Custom404 = () => {
   useEffect(() => {
     setInterval(() => {
       router.push("/");
-    }, 5000);
+    }, 4000);
   }, [router]);
 
   return (

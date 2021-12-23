@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import axios from "axios";
 import { FlagThumbnailResponse } from "types";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { CountryCard, InputDropdown, InputText } from "components";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -25,6 +26,8 @@ const Home: NextPage = ({
   const [initialData, setInitialData] = useState<
     FlagThumbnailResponse[] | undefined
   >(data);
+
+  const router = useRouter();
 
   const handleLoadData = useCallback(() => {
     axios
@@ -49,6 +52,18 @@ const Home: NextPage = ({
     [handleLoadData]
   );
 
+  const handleSearchCountry = useCallback(
+    (value: string) => {
+      axios
+        .get(`https://restcountries.com/v3.1/name/${value}`)
+        .then((res) => {
+          return setInitialData(res.data);
+        })
+        .catch(() => router.push("404"));
+    },
+    [router]
+  );
+
   return (
     <div className="dark:bg-verydarkblue">
       <Head>
@@ -60,7 +75,10 @@ const Home: NextPage = ({
         <meta name="author" content="handleryouth" />
       </Head>
       <div className="flex justify-center flex-col py-8 items-center">
-        <InputText placeholder="Search for a country" />
+        <InputText
+          placeholder="Search for a country"
+          toggleFunction={(value) => handleSearchCountry(value)}
+        />
         <InputDropdown
           value={["All", "Africa", "Americas", "Asia", "Europe", "Oceania"]}
           toggleFunction={(value) => handleFilterRegion(value)}

@@ -46,6 +46,7 @@ export interface InputDropdownProps {
 
 export interface InputTextProps {
   placeholder: string;
+  toggleFunction: (value: string) => void;
 }
 
 export interface BadgeProps {
