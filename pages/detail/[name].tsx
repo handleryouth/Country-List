@@ -66,7 +66,7 @@ const NationDetail: NextPage = ({
           Get Back
         </button>
       </div>
-      <div className="flex h-screen items-center flex-col xl:flex-row">
+      <div className="flex sm:h-screen items-center flex-col xl:flex-row">
         <div className="xl:basis-2/4 relative w-10/12 sm:w-full min-h-[24rem]">
           <Image
             src={flagDetail.current.flags.png}
@@ -120,7 +120,7 @@ const NationDetail: NextPage = ({
             </div>
           </div>
 
-          <div className="flex items-center xl:items-start mt-8 flex-col cm:flex-row">
+          <div className="flex items-center xl:items-start mt-8 flex-col cm:flex-row pb-16">
             <p>Border:</p>
             <div className="flex flex-wrap  flex-row sm:items-center">
               {flagDetail.current.borders &&
