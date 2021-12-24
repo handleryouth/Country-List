@@ -124,9 +124,13 @@ const NationDetail: NextPage = ({
             <p>Border:</p>
             <div className="flex flex-wrap  flex-row sm:items-center">
               {flagDetail.current.borders &&
+              flagDetail.current.borders.length > 0 ? (
                 flagDetail.current.borders.map((item, index) => {
                   return <Badge key={index} title={item} />;
-                })}
+                })
+              ) : (
+                <p>No border found.</p>
+              )}
             </div>
           </div>
         </div>
